@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFDC Daily Pulse — 2026-06-26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #0a0c10;
+    --ink2:      #2d3140;
+    --ink3:      #5c6070;
+    --ink4:      #9097a8;
+    --ink5:      #c4c8d2;
+    --bg:        #f0ede8;
+    --bg2:       #e8e5df;
+    --bg3:       #dedad3;
+    --white:     #faf9f7;
+    --navy:      #0f2044;
+    --navy2:     #1a3460;
+    --navy3:     #e8edf5;
+    --teal:      #0c6e6e;
+    --teal2:     #e0f0f0;
+    --green:     #1a6b3c;
+    --green2:    #e2f4ea;
+    --red:       #b52b2b;
+    --red2:      #fbe9e9;
+    --amber:     #9a5a08;
+    --amber2:    #fef3e0;
+    --gold:      #c8a435;
+    --border:    #d6d2ca;
+    --mono:      'Roboto Mono', monospace;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size: 13px; }
+  body {
+    font-family: var(--mono);
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--navy);
+    border-bottom: 2px solid var(--gold);
+    padding: 0 36px;
+    display: flex;
+    align-items: stretch;
+    min-height: 64px;
+  }
+  .masthead-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 14px 0;
+    flex: 1;
+  }
+  .masthead-eyebrow {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .masthead-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+  .masthead-right {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-left: 1px solid rgba(255,255,255,0.08);
+    margin-left: 32px;
+    padding-left: 32px;
+  }
+  .masthead-stat {
+    text-align: center;
+    padding: 0 20px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .masthead-stat:last-child { border-right: none; padding-right: 0; }
+  .mstat-label {
+    font-size: 8px;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .mstat-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .mstat-value.gold { color: var(--gold); }
+  .mstat-value.green { color: #4ade80; }
+  .mstat-value.red { color: #f87171; }
+  .mstat-value.amber { color: #fbbf24; }
+
+  /* ── TICKER ── */
+  .ticker {
+    background: var(--navy2);
+    padding: 6px 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .ticker-label {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    flex-shrink: 0;
+    padding-right: 12px;
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  .ticker-items {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    white-space: nowrap;
+  }
+  .ticker-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .ticker-dot.green { background: #4ade80; }
+  .ticker-dot.amber { background: #fbbf24; }
+  .ticker-dot.red   { background: #f87171; }
+  .ticker-item strong { color: #fff; font-weight: 500; }
+
+  /* ── BODY ── */
+  .body-wrap {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 20px;
+    padding: 20px 36px 40px;
+    max-width: 1280px;
+  }
+  .main-col { min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+  .side-col  { display: flex; flex-direction: column; gap: 20px; }
+
+  /* ── PANELS ── */
+  .panel {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .panel-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .panel-tag {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    padding: 2px 7px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .panel-tag.all    { background: var(--navy); color: #fff; }
+  .panel-tag.front  { background: #2e5fa3; color: #fff; }
+  .panel-tag.clinical { background: var(--teal); color: #fff; }
+  .panel-tag.billing  { background: var(--amber); color: #fff; }
+  .panel-tag.mgmt     { background: var(--navy); color: var(--gold); }
+  .panel-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink2);
+  }
+  .panel-meta {
+    margin-left: auto;
+    font-size: 9px;
+    color: var(--ink4);
+    letter-spacing: 0.06em;
+  }
+  .panel-body { padding: 14px 16px; }
+  .panel-body.tight { padding: 0; }
+
+  /* ── KPI ROW ── */
+  .kpi-row {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .kpi-row.cols-4 { grid-template-columns: repeat(4,1fr); }
+  .kpi-row.cols-3 { grid-template-columns: repeat(3,1fr); }
+  .kpi-row.cols-2 { grid-template-columns: repeat(2,1fr); }
+  .kpi {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 11px 13px 10px;
+    position: relative;
+  }
+  .kpi::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    border-radius: 4px 4px 0 0;
+  }
+  .kpi.k-navy::after  { background: var(--navy); }
+  .kpi.k-green::after { background: var(--green); }
+  .kpi.k-amber::after { background: #d97706; }
+  .kpi.k-red::after   { background: var(--red); }
+  .kpi.k-teal::after  { background: var(--teal); }
+  .kpi-lbl {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink4);
+    margin-bottom: 5px;
+  }
+  .kpi-val {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 5px;
+    letter-spacing: -0.02em;
+  }
+  .kpi-val.sm { font-size: 18px; }
+  .kpi-sub {
+    font-size: 10px;
+    color: var(--ink3);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 2px;
+  }
+  .chip.up    { background: var(--green2); color: var(--green); }
+  .chip.down  { background: var(--red2);   color: var(--red);   }
+  .chip.flat  { background: var(--bg3);    color: var(--ink3);  }
+  .chip.navy  { background: var(--navy3);  color: var(--navy);  }
+  .chip.amber { background: var(--amber2); color: var(--amber); }
+  .kpi-note {
+    font-size: 9px;
+    color: var(--ink4);
+    margin-top: 3px;
+    font-style: italic;
+  }
+  .kpi-note.green { color: var(--green); font-style: normal; font-weight: 600; }
+  .kpi-note.red   { color: var(--red);   font-style: normal; font-weight: 600; }
+  .kpi-note.amber { color: var(--amber); font-style: normal; font-weight: 600; }
+
+  /* ── TABLE ── */
+  .t {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11.5px;
+  }
+  .t thead tr {
+    background: var(--ink);
+  }
+  .t thead th {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    padding: 8px 12px;
+    text-align: left;
+    border: none;
+    white-space: nowrap;
+  }
+  .t thead th.r { text-align: right; }
+  .t tbody tr { border-bottom: 1px solid var(--bg3); }
+  .t tbody tr:last-child { border-bottom: none; }
+  .t tbody tr:hover { background: var(--bg); }
+  .t td {
+    padding: 8px 12px;
+    color: var(--ink2);
+    vertical-align: middle;
+  }
+  .t td.r { text-align: right; }
+  .t td.bold { font-weight: 600; color: var(--ink); }
+  .t td.mono { letter-spacing: -0.01em; }
+  .t tbody tr.subtotal {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+  .t tbody tr.subtotal td { font-weight: 600; color: var(--ink); }
+
+  /* ── BADGE ── */
+  .badge {
+    display: inline-block;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+  .badge.green  { background: var(--green2); color: var(--green); }
+  .badge.amber  { background: var(--amber2); color: var(--amber); }
+  .badge.red    { background: var(--red2);   color: var(--red);   }
+  .badge.navy   { background: var(--navy3);  color: var(--navy);  }
+  .badge.gray   { background: var(--bg3);    color: var(--ink3);  }
+  .badge.teal   { background: var(--teal2);  color: var(--teal);  }
+
+  /* ── PROGRESS ── */
+  .prog-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--bg3);
+  }
+  .prog-row:last-child { border-bottom: none; }
+  .prog-name { width: 130px; font-size: 11px; font-weight: 500; color: var(--ink2); flex-shrink: 0; }
+  .prog-name span { display: block; font-size: 9px; font-weight: 400; color: var(--ink4); }
+  .prog-track { flex: 1; height: 6px; background: var(--bg3); border-radius: 3px; overflow: hidden; }
+  .prog-fill { height: 100%; border-radius: 3px; }
+  .prog-fill.green { background: var(--green); }
+  .prog-fill.amber { background: #d97706; }
+  .prog-fill.red   { background: var(--red); }
+  .prog-fill.navy  { background: var(--navy); }
+  .prog-nums { display: flex; gap: 12px; flex-shrink: 0; }
+  .prog-num { text-align: right; }
+  .prog-num .v { font-size: 12px; font-weight: 600; color: var(--ink); }
+  .prog-num .l { font-size: 8px; color: var(--ink4); letter-spacing: 0.06em; }
+  .prog-pct {
+    width: 42px;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .prog-pct.green { color: var(--green); }
+  .prog-pct.amber { color: var(--amber); }
+  .prog-pct.red   { color: var(--red); }
+
+  /* ── ALERT CARDS ── */
+  .alert-card {
+    border-left: 3px solid transparent;
+    border-radius: 0 4px 4px 0;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .alert-card:last-child { margin-bottom: 0; }
+  .alert-card.red    { border-left-color: var(--red);   background: var(--red2);   }
+  .alert-card.amber  { border-left-color: #d97706;      background: var(--amber2); }
+  .alert-card.green  { border-left-color: var(--green); background: var(--green2); }
+  .alert-card.navy   { border-left-color: var(--navy);  background: var(--navy3);  }
+  .alert-card.teal   { border-left-color: var(--teal);  background: var(--teal2);  }
+  .alert-type { font-size: 8px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 3px; }
+  .alert-type.red   { color: var(--red);   }
+  .alert-type.amber { color: var(--amber); }
+  .alert-type.green { color: var(--green); }
+  .alert-type.navy  { color: var(--navy);  }
+  .alert-type.teal  { color: var(--teal);  }
+  .alert-msg  { font-size: 11.5px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .alert-det  { font-size: 10.5px; color: var(--ink3); line-height: 1.4; }
+
+  /* ── ACTION LIST ── */
+  .action-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--bg3);
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-num {
+    width: 22px; height: 22px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .action-body { flex: 1; }
+  .action-title { font-size: 11.5px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .action-detail { font-size: 10.5px; color: var(--ink3); line-height: 1.4; }
+  .action-meta {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .action-owner {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+  .action-owner.front    { background: #dce9f7; color: #2e5fa3; }
+  .action-owner.clinical { background: var(--teal2); color: var(--teal); }
+  .action-owner.billing  { background: var(--amber2); color: var(--amber); }
+  .action-owner.all      { background: var(--navy3); color: var(--navy); }
+  .action-priority {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink4);
+  }
+  .action-priority.high { color: var(--red); }
+  .action-priority.med  { color: var(--amber); }
+
+  /* ── SCHEDULE BLOCKS ── */
+  .sched-wrap { padding: 12px 16px; }
+  .sched-provider {
+    margin-bottom: 12px;
+  }
+  .sched-provider:last-child { margin-bottom: 0; }
+  .sched-pname {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+  }
+  .sched-pname span {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink3);
+  }
+  .sched-pval {
+    margin-left: auto;
+    font-size: 9px;
+    color: var(--ink4);
+  }
+  .sched-blocks {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 3px;
+  }
+  .sched-block {
+    height: 26px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: default;
+  }
+  .sched-block.booked   { background: var(--navy);  color: rgba(255,255,255,0.9); }
+  .sched-block.hygiene  { background: var(--teal);  color: rgba(255,255,255,0.9); }
+  .sched-block.open     { background: var(--bg3); color: var(--ink5); border: 1px dashed var(--border); }
+  .sched-block.unconf   { background: var(--amber2); color: var(--amber); border: 1px dashed #d97706; }
+  .sched-block.spec     { background: #3c1f8c; color: rgba(255,255,255,0.85); }
+  .sched-legend {
+    display: flex;
+    gap: 14px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .sched-leg-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 8.5px;
+    color: var(--ink4);
+  }
+  .sched-leg-dot { width: 8px; height: 8px; border-radius: 2px; }
+
+  /* ── AR VISUAL ── */
+  .ar-bar {
+    height: 10px;
+    display: flex;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 8px 0;
+  }
+
+  /* ── MINI STAT ── */
+  .mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .mini-stat {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 9px 11px;
+  }
+  .mini-stat-lbl { font-size: 8px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink4); margin-bottom: 3px; }
+  .mini-stat-val { font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+  .mini-stat-sub { font-size: 9px; color: var(--ink3); margin-top: 1px; }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--bg3); margin: 12px 0; }
+
+  /* ── SECTION LABEL ── */
+  .section-lbl {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink4);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-lbl::after { content:''; flex:1; height:1px; background: var(--bg3); }
+
+  /* ── WEEK CHART ── */
+  .week-bar-wrap { padding: 0 16px 14px; }
+  .week-bars { display: flex; gap: 8px; align-items: flex-end; height: 80px; margin-bottom: 4px; }
+  .week-bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .week-bar {
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    position: relative;
+    min-height: 4px;
+    cursor: default;
+  }
+  .week-bar.goal-line { background: var(--navy3); border: 1px dashed var(--ink5); }
+  .week-bar-lbl { font-size: 8px; color: var(--ink4); letter-spacing: 0.04em; text-align: center; }
+  .week-bar-amt { font-size: 8.5px; font-weight: 600; color: var(--ink3); text-align: center; }
+
+  /* ── PROVIDER SCORECARD ── */
+  .provider-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 70px 70px 56px;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--bg3);
+  }
+  .provider-row:last-child { border-bottom: none; }
+  .provider-row:hover { background: var(--bg); }
+  .prov-name { font-size: 11px; font-weight: 600; color: var(--ink); }
+  .prov-role { font-size: 9px; color: var(--ink4); }
+  .prov-bar-wrap { }
+  .prov-bar-track { height: 5px; background: var(--bg3); border-radius: 3px; overflow: hidden; margin-top: 4px; }
+  .prov-bar-fill  { height: 100%; border-radius: 3px; }
+  .prov-bar-fill.green { background: var(--green); }
+  .prov-bar-fill.amber { background: #d97706; }
+  .prov-bar-fill.red   { background: var(--red); }
+  .prov-nums { font-size: 10px; text-align: right; }
+  .prov-nums span { display: block; font-size: 8.5px; color: var(--ink4); }
+  .prov-pct { font-size: 13px; font-weight: 700; text-align: right; }
+  .prov-pct.green { color: var(--green); }
+  .prov-pct.amber { color: var(--amber); }
+  .prov-pct.red   { color: var(--red); }
+
+  /* ── INSIGHT BOX ── */
+  .insight {
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 11px 14px;
+    margin-top: 10px;
+  }
+  .insight-label {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 5px;
+  }
+  .insight-text {
+    font-size: 11px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+  }
+  .insight-text strong { color: #fff; font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .report-footer {
+    background: var(--ink);
+    padding: 12px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-left {
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer-sources {
+    display: flex;
+    gap: 20px;
+  }
+  .footer-src {
+    font-size: 8.5px;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+  }
+  .footer-src span { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .body-wrap { grid-template-columns: 1fr; padding: 16px; }
+    .kpi-row.cols-4 { grid-template-columns: repeat(2,1fr); }
+    .masthead-right { display: none; }
+  }
+  @media print {
+    .masthead, .panel-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .body-wrap { padding: 12px; }
+  }
+</style>
+<style>
+  /* ── Gantt-style timeline ── */
+  .tl-container {
+    padding: 8px 0 4px;
+  }
+
+  /* Shared time axis at top */
+  .tl-axis-row {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 2px;
+  }
+  .tl-label-spacer {
+    flex: 0 0 140px;
+    min-width: 140px;
+  }
+  .tl-axis {
+    flex: 1;
+    position: relative;
+    height: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tl-axis-lbl {
+    position: absolute;
+    bottom: 2px;
+    transform: translateX(-50%);
+    font-size: 8.5px;
+    font-weight: 500;
+    color: var(--ink4);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  /* Each provider row */
+  .tl-row {
+    display: flex;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--bg3);
+  }
+  .tl-row:last-of-type {
+    border-bottom: none;
+  }
+
+  /* Left label column */
+  .tl-label {
+    flex: 0 0 140px;
+    min-width: 140px;
+    padding-right: 10px;
+  }
+  .tl-prov-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink1);
+    line-height: 1.3;
+  }
+  .tl-prov-meta {
+    font-size: 8.5px;
+    color: var(--ink5);
+    margin-top: 1px;
+  }
+  .tl-role-tag {
+    display: inline-block;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 1px 4px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-right: 3px;
+  }
+  .tl-role-dds { background: rgba(26,42,78,0.1); color: var(--navy); }
+  .tl-role-hyg { background: rgba(13,148,136,0.1); color: var(--teal); }
+  .tl-prov-stats {
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--ink3);
+    margin-top: 2px;
+  }
+
+  /* Mini fill-rate bar */
+  .tl-fill-wrap {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 3px;
+  }
+  .tl-fill-track {
+    flex: 1;
+    height: 4px;
+    background: var(--bg3);
+    border-radius: 2px;
+    overflow: hidden;
+    max-width: 80px;
+  }
+  .tl-fill-bar {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.3s;
+  }
+  .tl-fill-lbl {
+    font-size: 9px;
+    font-weight: 700;
+    min-width: 28px;
+  }
+
+  /* Timeline track (right side) */
+  .tl-track {
+    flex: 1;
+    position: relative;
+    height: 32px;
+    background: var(--bg2);
+    border-radius: 4px;
+    overflow: visible;
+  }
+
+  /* Working-hours shaded zone */
+  .tl-work-zone {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: var(--bg3);
+    border-radius: 4px;
+    z-index: 0;
+  }
+
+  /* Appointment bar container */
+  .tl-bar {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    right: 0;
+    height: 24px;
+  }
+
+  /* Individual appointment blocks */
+  .tl-appt {
+    position: absolute;
+    top: 0;
+    height: 24px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    box-sizing: border-box;
+    cursor: default;
+    box-shadow: 0 0 0 0.5px rgba(0,0,0,0.08);
+  }
+  .tl-appt span {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 3px;
+  }
+  .tl-booked { background: var(--navy); color: rgba(255,255,255,0.92); }
+  .tl-hyg    { background: var(--teal); color: rgba(255,255,255,0.92); }
+  .tl-unconf { background: var(--amber2); color: var(--amber); border: 1.5px dashed #d97706; }
+  .tl-invisalign { background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%) !important; color: #fff !important; border: 1.5px solid #7c3aed; box-shadow: 0 0 4px rgba(124,58,237,0.4); }
+
+  /* Hour gridlines */
+  .tl-hour-mark {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: var(--border);
+    opacity: 0.35;
+    z-index: 1;
+  }
+
+  /* Legend */
+  .tl-legend {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    padding: 8px 0 2px;
+    margin-top: 4px;
+  }
+  .tl-leg-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 8.5px;
+    color: var(--ink4);
+  }
+  .tl-leg-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .tl-leg-unconf {
+    background: var(--amber2);
+    border: 1.5px dashed #d97706;
+    box-sizing: border-box;
+  }
+  .tl-leg-open {
+    background: var(--bg3);
+    border: 1.5px dashed var(--border);
+    box-sizing: border-box;
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="masthead-eyebrow">Cupertino Family Dentistry &nbsp;·&nbsp; Daily Operations Pulse</div>
+    <div class="masthead-title" id="greeting">Daily Pulse Report</div>
+  </div>
+  <div class="masthead-right">
+    <div class="masthead-stat">
+      <div class="mstat-label">Today's Goal</div>
+      <div class="mstat-value gold">$21,122</div>
+      <div style="font-size:8px;color:var(--ink4);letter-spacing:.04em;">FCST $16,412</div>
+    </div>
+    <div class="masthead-stat">
+      <div class="mstat-label">Yesterday</div>
+      <div class="mstat-value">$16,434</div>
+    </div>
+    <div class="masthead-stat">
+      <div class="mstat-label">MTD vs Goal</div>
+      <div class="mstat-value red">-13.1%</div>
+    </div>
+    <div class="masthead-stat">
+      <div class="mstat-label">YTD vs Pace</div>
+      <div class="mstat-value green">+3.6%</div>
+    </div>
+    <div class="masthead-stat">
+      <div class="mstat-label">Date</div>
+      <div class="mstat-value" style="font-size:11px;" id="header-date">Jun 26</div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-label">Live Status</div>
+  <div class="ticker-items">
+    <div class="ticker-item"><span class="ticker-dot red"></span>Scheduled Friday, Jun 26: <strong>$15,452</strong>&nbsp;(73.2% of goal)</div>
+    <div class="ticker-item"><span class="ticker-dot green"></span>Unconfirmed: <strong>0 pts</strong>&nbsp;($0 at risk)</div>
+    <div class="ticker-item"><span class="ticker-dot green"></span>Open hygiene slots: <strong>1</strong></div>
+    <div class="ticker-item"><span class="ticker-dot red"></span>90+ day AR: <strong>$435,139</strong>&nbsp;(52.3% of AR)</div>
+    <div class="ticker-item"><span class="ticker-dot green"></span>Claims pending: <strong>208</strong></div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body-wrap">
+
+  <!-- MAIN COLUMN -->
+  <div class="main-col">
+
+    <!-- YESTERDAY'S RESULTS -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-tag all">All Staff</span>
+        <span class="panel-title">Yesterday's Results</span>
+        <span class="panel-meta">Source: Jarvis PMS</span>
+      </div>
+      <div class="panel-body">
+        <div class="kpi-row cols-4">
+          <div class="kpi k-navy">
+            <div class="kpi-lbl">Gross Production</div>
+            <div class="kpi-val">$16,434</div>
+            <div class="kpi-sub">Goal $21,122</div>
+            <div class="kpi-note amber">Goal $21,122 · <strong>77.8%</strong></div>
+          </div>
+          <div class="kpi k-green">
+            <div class="kpi-lbl">Collections</div>
+            <div class="kpi-val">$14,306</div>
+            <div class="kpi-sub"><span class="chip down">87.1%</span> ratio</div>
+            <div class="kpi-note red">Target ≥98% · Watch</div>
+          </div>
+          <div class="kpi k-teal">
+            <div class="kpi-lbl">Patients Seen</div>
+            <div class="kpi-val">51</div>
+            <div class="kpi-sub">0 new patients</div>
+            <div class="kpi-note">Avg prod/visit: <strong>$322</strong></div>
+          </div>
+          <div class="kpi k-amber">
+            <div class="kpi-lbl">Cancellations</div>
+            <div class="kpi-val">1</div>
+            <div class="kpi-sub">$360 lost</div>
+            <div class="kpi-note amber>1.6% cancel rate</div>
+          </div>
+        </div>
+
+        <!-- Provider Scorecard -->
+        <div class="section-lbl">Provider production vs daily goal</div>
+        <div style="background:var(--white); border:1px solid var(--border); border-radius:4px; overflow:hidden;">
+          <div class="provider-row" style="background:var(--bg2);">
+            <div style="font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);">Provider</div>
+            <div style="font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);">vs Daily Goal</div>
+            <div style="font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);text-align:right;">Actual</div>
+            <div style="font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);text-align:right;">Goal</div>
+            <div style="font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);text-align:right;">%</div>
+          </div>
+          
+          <div class="provider-row">
+            <div><div class="prov-name">Dr. Lo</div><div class="prov-role">Clinical Director · GP</div></div>
+            <div class="prov-bar-wrap">
+              <div style="font-size:9px;color:var(--ink4);">$7,692 vs $12,120</div>
+              <div class="prov-bar-track"><div class="prov-bar-fill red" style="width:63%"></div></div>
+            </div>
+            <div class="prov-nums r">$7,692<span>gross</span></div>
+            <div class="prov-nums r">$12,120<span>goal</span></div>
+            <div class="prov-pct red">63%</div>
+          </div>
+          <div class="provider-row">
+            <div><div class="prov-name">Alice Chien</div><div class="prov-role">RDH Hygiene</div></div>
+            <div class="prov-bar-wrap">
+              <div style="font-size:9px;color:var(--ink4);">$1,728 vs $2,627</div>
+              <div class="prov-bar-track"><div class="prov-bar-fill red" style="width:66%"></div></div>
+            </div>
+            <div class="prov-nums r">$1,728<span>gross</span></div>
+            <div class="prov-nums r">$2,627<span>goal</span></div>
+            <div class="prov-pct red">66%</div>
+          </div>
+          <div class="provider-row">
+            <div><div class="prov-name">Thomas Du</div><div class="prov-role">RDH Hygiene</div></div>
+            <div class="prov-bar-wrap">
+              <div style="font-size:9px;color:var(--ink4);">$2,521 vs $2,450</div>
+              <div class="prov-bar-track"><div class="prov-bar-fill green" style="width:100%"></div></div>
+            </div>
+            <div class="prov-nums r">$2,521<span>gross</span></div>
+            <div class="prov-nums r">$2,450<span>goal</span></div>
+            <div class="prov-pct green">103%</div>
+          </div>
+          <div class="provider-row">
+            <div><div class="prov-name">Dr. Louie</div><div class="prov-role">Associate · GP (New 6/2)</div></div>
+            <div class="prov-bar-wrap">
+              <div style="font-size:9px;color:var(--ink4);">$2,084 vs $2,317</div>
+              <div class="prov-bar-track"><div class="prov-bar-fill amber" style="width:90%"></div></div>
+            </div>
+            <div class="prov-nums r">$2,084<span>gross</span></div>
+            <div class="prov-nums r">$2,317<span>goal</span></div>
+            <div class="prov-pct amber">90%</div>
+          </div>
+          <div class="provider-row">
+            <div><div class="prov-name">Kim Nguyen</div><div class="prov-role">RDH Hygiene</div></div>
+            <div class="prov-bar-wrap">
+              <div style="font-size:9px;color:var(--ink4);">$2,409 vs $2,309</div>
+              <div class="prov-bar-track"><div class="prov-bar-fill green" style="width:100%"></div></div>
+            </div>
+            <div class="prov-nums r">$2,409<span>gross</span></div>
+            <div class="prov-nums r">$2,309<span>goal</span></div>
+            <div class="prov-pct green">104%</div>
+          </div>
+        </div>
+
+        <div class="insight">
+          <div class="insight-label">Insight · Yesterday</div>
+          <div class="insight-text">Practice finished <strong>$4,688 below daily goal</strong> — driven by Dr. Lo at 63% ($4,428 gap). Kim Nguyen overperformed at 104% ($2,409 vs $2,309 goal). 1 cancellations ($360 lost) contributed to the gap.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOMORROW'S SCHEDULE -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-tag front">Front Desk</span>
+        <span class="panel-tag clinical">Clinical</span>
+        <span class="panel-title">Today's Schedule — Friday, Jun 26</span>
+        <span class="panel-meta">Source: Jarvis Calendar</span>
+      </div>
+      <div class="panel-body">
+        <div class="kpi-row cols-4" style="margin-bottom:14px;">
+          <div class="kpi k-navy">
+            <div class="kpi-lbl">Scheduled Production</div>
+            <div class="kpi-val sm">$15,452</div>
+            <div class="kpi-sub"><span class="chip down">-$5,670</span> vs goal</div>
+          </div>
+          <div class="kpi k-amber">
+            <div class="kpi-lbl">Unconfirmed Patients</div>
+            <div class="kpi-val sm">0</div>
+            <div class="kpi-sub"><span class="chip amber">$0</span> at risk</div>
+            <div class="kpi-note amber">All confirmed</div>
+          </div>
+          <div class="kpi k-teal">
+            <div class="kpi-lbl">Patients Scheduled</div>
+            <div class="kpi-val sm">54</div>
+            <div class="kpi-sub">Today's appointments</div>
+          </div>
+          <div class="kpi k-green">
+            <div class="kpi-lbl">Pending Tx Plans in Chair</div>
+            <div class="kpi-val sm">38</div>
+            <div class="kpi-sub"><span class="chip navy">$253,915</span> pending value</div>
+            <div class="kpi-note">Review at morning huddle</div>
+          </div>
+        </div>
+
+        <!-- Schedule timeline -->
+        <div class="section-lbl">Chair fill by provider</div>
+        <div class="tl-container">
+          <div class="tl-axis-row">
+            <div class="tl-label-spacer"></div>
+            <div class="tl-axis"><div class="tl-axis-lbl" style="left:5.0%;">8 AM</div><div class="tl-axis-lbl" style="left:15.0%;">9 AM</div><div class="tl-axis-lbl" style="left:25.0%;">10 AM</div><div class="tl-axis-lbl" style="left:35.0%;">11 AM</div><div class="tl-axis-lbl" style="left:45.0%;">12 PM</div><div class="tl-axis-lbl" style="left:55.0%;">1 PM</div><div class="tl-axis-lbl" style="left:65.0%;">2 PM</div><div class="tl-axis-lbl" style="left:75.0%;">3 PM</div><div class="tl-axis-lbl" style="left:85.0%;">4 PM</div><div class="tl-axis-lbl" style="left:95.0%;">5 PM</div></div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-label">
+              <div class="tl-prov-name">Dr. Lo</div>
+              <div class="tl-prov-meta"><span class="tl-role-tag tl-role-dds">DDS</span> 24 pts</div>
+              <div class="tl-prov-stats">
+                <span style="color:var(--red);">$4,195</span> / $12,120
+              </div>
+              <div class="tl-fill-wrap">
+                <div class="tl-fill-track"><div class="tl-fill-bar" style="width:85%;background:var(--green);"></div></div>
+                <span class="tl-fill-lbl" style="color:var(--green);">85%</span>
+              </div>
+            </div>
+            <div class="tl-track">
+              <div class="tl-work-zone" style="left:5.0%;width:90.0%;"></div>
+              <div class="tl-hour-mark" style="left:5.0%;"></div><div class="tl-hour-mark" style="left:15.0%;"></div><div class="tl-hour-mark" style="left:25.0%;"></div><div class="tl-hour-mark" style="left:35.0%;"></div><div class="tl-hour-mark" style="left:45.0%;"></div><div class="tl-hour-mark" style="left:55.0%;"></div><div class="tl-hour-mark" style="left:65.0%;"></div><div class="tl-hour-mark" style="left:75.0%;"></div><div class="tl-hour-mark" style="left:85.0%;"></div><div class="tl-hour-mark" style="left:95.0%;"></div>
+              <div class="tl-bar">
+                <div class="tl-appt tl-booked" style="left:0.00%;width:5.00%;" title="Yu-heng Chen · 7:30 AM · 30min · $0"><span>Yu-hen</span></div><div class="tl-appt tl-booked" style="left:5.00%;width:6.67%;" title="Viacheslav Petc · 8:00 AM · 40min · $294"><span>Viache</span></div><div class="tl-appt tl-booked tl-invisalign" style="left:10.00%;width:6.67%;" title="Bridgette Bourgouin-Montiel · 8:30 AM · 40min · $0 · Operatory 8 · INVISALIGN/ALIGNER"><span>Bridge 🦷</span></div><div class="tl-appt tl-booked" style="left:10.00%;width:3.33%;" title="Jialun Wu · 8:30 AM · 20min · $0"><span></span></div><div class="tl-appt tl-booked" style="left:15.00%;width:10.00%;" title="Aniruddha Tiwari · 9:00 AM · 60min · $0"><span>Aniruddha Ti</span></div><div class="tl-appt tl-booked" style="left:15.00%;width:5.00%;" title="Annapurna Gandikota · 9:00 AM · 30min · $0"><span>Annapu</span></div><div class="tl-appt tl-booked" style="left:15.00%;width:5.00%;" title="Eugene Lee · 9:00 AM · 30min · $0"><span>Eugene</span></div><div class="tl-appt tl-booked tl-invisalign" style="left:20.00%;width:5.00%;" title="Yuka Ogami · 9:30 AM · 30min · $0 · Operatory 8 · INVISALIGN/ALIGNER"><span>Yuka O 🦷</span></div><div class="tl-appt tl-booked" style="left:25.00%;width:16.67%;" title="Christine Black · 10:00 AM · 100min · $1,156"><span>Christine Bl</span></div><div class="tl-appt tl-booked tl-invisalign" style="left:30.00%;width:5.00%;" title="Chunchin Fang · 10:30 AM · 30min · $0 · Operatory 8 · INVISALIGN/ALIGNER"><span>Chunch 🦷</span></div><div class="tl-appt tl-booked tl-invisalign" style="left:35.00%;width:5.00%;" title="Qiuwen Chen · 11:00 AM · 30min · $0 · Operatory 8 · INVISALIGN/ALIGNER"><span>Qiuwen 🦷</span></div><div class="tl-appt tl-booked" style="left:35.00%;width:3.33%;" title="Xiaoyu Suo · 11:00 AM · 20min · $285"><span></span></div><div class="tl-appt tl-booked tl-invisalign" style="left:40.00%;width:5.00%;" title="Erika Pozdneev · 11:30 AM · 30min · $0 · Operatory 8 · INVISALIGN/ALIGNER"><span>Erika  🦷</span></div><div class="tl-appt tl-booked" style="left:55.00%;width:5.00%;" title="Anne Samuels · 1:00 PM · 30min · $314"><span>Anne S</span></div><div class="tl-appt tl-booked" style="left:55.00%;width:6.67%;" title="James Kuo · 1:00 PM · 40min · $216"><span>James </span></div><div class="tl-appt tl-booked tl-invisalign" style="left:55.00%;width:5.00%;" title="Yue Xu · 1:00 PM · 30min · $0 · Operatory 8 · INVISALIGN/ALIGNER"><span>Yue Xu 🦷</span></div><div class="tl-appt tl-booked tl-invisalign" style="left:60.00%;width:5.00%;" title="Feitong Tan · 1:30 PM · 30min · $0 · Operatory 8 · INVISALIGN/ALIGNER"><span>Feiton 🦷</span></div><div class="tl-appt tl-booked" style="left:65.00%;width:8.33%;" title="Walker Lee · 2:00 PM · 50min · $216"><span>Walker Lee</span></div><div class="tl-appt tl-booked" style="left:75.00%;width:8.33%;" title="Nancy Hirvonen · 3:00 PM · 50min · $1,714"><span>Nancy Hirvon</span></div><div class="tl-appt tl-booked tl-invisalign" style="left:75.00%;width:5.00%;" title="Pui Chak Tam · 3:00 PM · 30min · $0 · Operatory 8 · INVISALIGN/ALIGNER"><span>Pui Ch 🦷</span></div><div class="tl-appt tl-booked tl-invisalign" style="left:80.00%;width:5.00%;" title="Gloria Chen · 3:30 PM · 30min · $0 · Operatory 8 · INVISALIGN/ALIGNER"><span>Gloria 🦷</span></div><div class="tl-appt tl-booked tl-invisalign" style="left:85.00%;width:8.33%;" title="Wei Di · 4:00 PM · 50min · $0 · Operatory 8 · INVISALIGN/ALIGNER"><span>Wei Di 🦷</span></div><div class="tl-appt tl-booked" style="left:85.00%;width:5.00%;" title="Wen Chi Wang · 4:00 PM · 30min · $0"><span>Wen Ch</span></div><div class="tl-appt tl-booked" style="left:90.00%;width:3.33%;" title="Arjun Twaddell · 4:30 PM · 20min · $0"><span></span></div>
+              </div>
+            </div>
+          </div><div class="tl-row">
+            <div class="tl-label">
+              <div class="tl-prov-name">Kim Nguyen</div>
+              <div class="tl-prov-meta"><span class="tl-role-tag tl-role-hyg">HYG</span> 8 pts</div>
+              <div class="tl-prov-stats">
+                <span style="color:var(--green);">$3,480</span> / $2,309
+              </div>
+              <div class="tl-fill-wrap">
+                <div class="tl-fill-track"><div class="tl-fill-bar" style="width:85%;background:var(--green);"></div></div>
+                <span class="tl-fill-lbl" style="color:var(--green);">85%</span>
+              </div>
+            </div>
+            <div class="tl-track">
+              <div class="tl-work-zone" style="left:5.0%;width:90.0%;"></div>
+              <div class="tl-hour-mark" style="left:5.0%;"></div><div class="tl-hour-mark" style="left:15.0%;"></div><div class="tl-hour-mark" style="left:25.0%;"></div><div class="tl-hour-mark" style="left:35.0%;"></div><div class="tl-hour-mark" style="left:45.0%;"></div><div class="tl-hour-mark" style="left:55.0%;"></div><div class="tl-hour-mark" style="left:65.0%;"></div><div class="tl-hour-mark" style="left:75.0%;"></div><div class="tl-hour-mark" style="left:85.0%;"></div><div class="tl-hour-mark" style="left:95.0%;"></div>
+              <div class="tl-bar">
+                <div class="tl-appt tl-hyg" style="left:5.00%;width:10.00%;" title="Yu-heng Chen · 8:00 AM · 60min · $203"><span>Yu-heng Chen</span></div><div class="tl-appt tl-hyg" style="left:15.00%;width:10.00%;" title="TienYow Liu · 9:00 AM · 60min · $584"><span>TienYow Liu</span></div><div class="tl-appt tl-hyg" style="left:25.00%;width:10.00%;" title="Subhodeep Bhattacharya · 10:00 AM · 60min · $512"><span>Subhodeep Bh</span></div><div class="tl-appt tl-hyg" style="left:35.00%;width:6.67%;" title="Xinyue Hu · 11:00 AM · 40min · $890"><span>Xinyue</span></div><div class="tl-appt tl-hyg" style="left:55.00%;width:10.00%;" title="Justin Brookshire · 1:00 PM · 60min · $292"><span>Justin Brook</span></div><div class="tl-appt tl-hyg" style="left:65.00%;width:10.00%;" title="Yikai Zou · 2:00 PM · 60min · $477"><span>Yikai Zou</span></div><div class="tl-appt tl-hyg" style="left:75.00%;width:10.00%;" title="Srinivas Ajjarapu · 3:00 PM · 60min · $203"><span>Srinivas Ajj</span></div><div class="tl-appt tl-hyg" style="left:85.00%;width:10.00%;" title="Vincent Nguyen · 4:00 PM · 60min · $319"><span>Vincent Nguy</span></div>
+              </div>
+            </div>
+          </div><div class="tl-row">
+            <div class="tl-label">
+              <div class="tl-prov-name">Alice Chien</div>
+              <div class="tl-prov-meta"><span class="tl-role-tag tl-role-hyg">HYG</span> 8 pts</div>
+              <div class="tl-prov-stats">
+                <span style="color:var(--green);">$3,350</span> / $2,627
+              </div>
+              <div class="tl-fill-wrap">
+                <div class="tl-fill-track"><div class="tl-fill-bar" style="width:74%;background:var(--amber);"></div></div>
+                <span class="tl-fill-lbl" style="color:var(--amber);">74%</span>
+              </div>
+            </div>
+            <div class="tl-track">
+              <div class="tl-work-zone" style="left:5.0%;width:90.0%;"></div>
+              <div class="tl-hour-mark" style="left:5.0%;"></div><div class="tl-hour-mark" style="left:15.0%;"></div><div class="tl-hour-mark" style="left:25.0%;"></div><div class="tl-hour-mark" style="left:35.0%;"></div><div class="tl-hour-mark" style="left:45.0%;"></div><div class="tl-hour-mark" style="left:55.0%;"></div><div class="tl-hour-mark" style="left:65.0%;"></div><div class="tl-hour-mark" style="left:75.0%;"></div><div class="tl-hour-mark" style="left:85.0%;"></div><div class="tl-hour-mark" style="left:95.0%;"></div>
+              <div class="tl-bar">
+                <div class="tl-appt tl-hyg" style="left:5.00%;width:10.00%;" title="Jie Shen · 8:00 AM · 60min · $319"><span>Jie Shen</span></div><div class="tl-appt tl-hyg" style="left:15.00%;width:8.33%;" title="Derrick Pappachan · 9:00 AM · 50min · $319"><span>Derrick Papp</span></div><div class="tl-appt tl-hyg" style="left:25.00%;width:10.00%;" title="Bahram Raad · 10:00 AM · 60min · $584"><span>Bahram Raad</span></div><div class="tl-appt tl-hyg" style="left:35.00%;width:8.33%;" title="Ethan Leelanivas · 11:00 AM · 50min · $292"><span>Ethan Leelan</span></div><div class="tl-appt tl-hyg" style="left:55.00%;width:3.33%;" title="Wan-ting Shen · 1:00 PM · 20min · $292"><span></span></div><div class="tl-appt tl-hyg" style="left:60.00%;width:10.00%;" title="Niccolo Villafria · 1:30 PM · 60min · $335"><span>Niccolo Vill</span></div><div class="tl-appt tl-hyg" style="left:75.00%;width:6.67%;" title="Kaixin Song · 3:00 PM · 40min · $890"><span>Kaixin</span></div><div class="tl-appt tl-hyg" style="left:85.00%;width:10.00%;" title="Aarav Twaddell · 4:00 PM · 60min · $319"><span>Aarav Twadde</span></div>
+              </div>
+            </div>
+          </div><div class="tl-row">
+            <div class="tl-label">
+              <div class="tl-prov-name">Thomas Du</div>
+              <div class="tl-prov-meta"><span class="tl-role-tag tl-role-hyg">HYG</span> 6 pts</div>
+              <div class="tl-prov-stats">
+                <span style="color:var(--amber);">$1,736</span> / $2,450
+              </div>
+              <div class="tl-fill-wrap">
+                <div class="tl-fill-track"><div class="tl-fill-bar" style="width:52%;background:var(--red);"></div></div>
+                <span class="tl-fill-lbl" style="color:var(--red);">52%</span>
+              </div>
+            </div>
+            <div class="tl-track">
+              <div class="tl-work-zone" style="left:5.0%;width:90.0%;"></div>
+              <div class="tl-hour-mark" style="left:5.0%;"></div><div class="tl-hour-mark" style="left:15.0%;"></div><div class="tl-hour-mark" style="left:25.0%;"></div><div class="tl-hour-mark" style="left:35.0%;"></div><div class="tl-hour-mark" style="left:45.0%;"></div><div class="tl-hour-mark" style="left:55.0%;"></div><div class="tl-hour-mark" style="left:65.0%;"></div><div class="tl-hour-mark" style="left:75.0%;"></div><div class="tl-hour-mark" style="left:85.0%;"></div><div class="tl-hour-mark" style="left:95.0%;"></div>
+              <div class="tl-bar">
+                <div class="tl-appt tl-hyg" style="left:45.00%;width:8.33%;" title="Rabin Karki Doli · 12:00 PM · 50min · $472"><span>Rabin Karki </span></div><div class="tl-appt tl-hyg" style="left:55.00%;width:10.00%;" title="Yue Xu · 1:00 PM · 60min · $165"><span>Yue Xu</span></div><div class="tl-appt tl-hyg" style="left:65.00%;width:10.00%;" title="Eric Raut · 2:00 PM · 60min · $319"><span>Eric Raut</span></div><div class="tl-appt tl-hyg" style="left:75.00%;width:10.00%;" title="Yanhao Li · 3:00 PM · 60min · $203"><span>Yanhao Li</span></div><div class="tl-appt tl-hyg" style="left:85.00%;width:5.00%;" title="Arjun Twaddell · 4:00 PM · 30min · $297"><span>Arjun </span></div><div class="tl-appt tl-hyg" style="left:90.00%;width:3.33%;" title="Aarya Twaddell · 4:30 PM · 20min · $280"><span></span></div>
+              </div>
+            </div>
+          </div><div class="tl-row">
+            <div class="tl-label">
+              <div class="tl-prov-name">Temp Hygienist</div>
+              <div class="tl-prov-meta"><span class="tl-role-tag tl-role-dds">DDS</span> 8 pts</div>
+              <div class="tl-prov-stats">
+                <span style="color:var(--red);">$2,691</span> / $0
+              </div>
+              <div class="tl-fill-wrap">
+                <div class="tl-fill-track"><div class="tl-fill-bar" style="width:83%;background:var(--amber);"></div></div>
+                <span class="tl-fill-lbl" style="color:var(--amber);">83%</span>
+              </div>
+            </div>
+            <div class="tl-track">
+              <div class="tl-work-zone" style="left:5.0%;width:90.0%;"></div>
+              <div class="tl-hour-mark" style="left:5.0%;"></div><div class="tl-hour-mark" style="left:15.0%;"></div><div class="tl-hour-mark" style="left:25.0%;"></div><div class="tl-hour-mark" style="left:35.0%;"></div><div class="tl-hour-mark" style="left:45.0%;"></div><div class="tl-hour-mark" style="left:55.0%;"></div><div class="tl-hour-mark" style="left:65.0%;"></div><div class="tl-hour-mark" style="left:75.0%;"></div><div class="tl-hour-mark" style="left:85.0%;"></div><div class="tl-hour-mark" style="left:95.0%;"></div>
+              <div class="tl-bar">
+                <div class="tl-appt tl-booked" style="left:5.00%;width:5.00%;" title="Annapurna Gandikota · 8:00 AM · 30min · $292"><span>Annapu</span></div><div class="tl-appt tl-booked" style="left:15.00%;width:10.00%;" title="Luke Xing · 9:00 AM · 60min · $364"><span>Luke Xing</span></div><div class="tl-appt tl-booked" style="left:25.00%;width:10.00%;" title="Mahit Tanikella · 10:00 AM · 60min · $136"><span>Mahit Tanike</span></div><div class="tl-appt tl-booked" style="left:35.00%;width:10.00%;" title="Gavin Leelanivas · 11:00 AM · 60min · $584"><span>Gavin Leelan</span></div><div class="tl-appt tl-booked" style="left:55.00%;width:10.00%;" title="Feitong Tan · 1:00 PM · 60min · $319"><span>Feitong Tan</span></div><div class="tl-appt tl-booked" style="left:65.00%;width:10.00%;" title="Pamela Gerega · 2:00 PM · 60min · $512"><span>Pamela Gereg</span></div><div class="tl-appt tl-booked" style="left:75.00%;width:10.00%;" title="Mehul Anand · 3:00 PM · 60min · $281"><span>Mehul Anand</span></div><div class="tl-appt tl-booked" style="left:85.00%;width:10.00%;" title="Swathi Twaddell · 4:00 PM · 60min · $203"><span>Swathi Twadd</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="tl-legend">
+            <div class="tl-leg-item"><div class="tl-leg-dot" style="background:var(--navy);"></div>Dentist</div>
+            <div class="tl-leg-item"><div class="tl-leg-dot" style="background:var(--teal);"></div>Hygiene</div>
+            <div class="tl-leg-item"><div class="tl-leg-dot" style="background:linear-gradient(135deg,#7c3aed,#a855f7);"></div>Invisalign (Op 8)</div>
+            <div class="tl-leg-item"><div class="tl-leg-dot tl-leg-unconf"></div>Unconfirmed</div>
+            <div class="tl-leg-item"><div class="tl-leg-dot tl-leg-open"></div>Open</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MTD PACE -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-tag mgmt">Management</span>
+        <span class="panel-title">Month-to-Date Pace</span>
+        <span class="panel-meta">Source: Jarvis · Financial Module</span>
+      </div>
+      <div class="panel-body">
+        <div class="kpi-row cols-3" style="margin-bottom:14px;">
+          <div class="kpi k-navy">
+            <div class="kpi-lbl">MTD Gross Production</div>
+            <div class="kpi-val sm">$348,765</div>
+            <div class="kpi-sub"><span class="chip flat">Day 19 of 21</span></div>
+            <div class="kpi-note amber">Pace: $385,477</div>
+          </div>
+          <div class="kpi k-green">
+            <div class="kpi-lbl">MTD Collections</div>
+            <div class="kpi-val sm">$310,379</div>
+            <div class="kpi-sub"><span class="chip flat">89.0%</span> ratio</div>
+            <div class="kpi-note amber">Watch — target ≥98%</div>
+          </div>
+          <div class="kpi k-teal">
+            <div class="kpi-lbl">New Patients MTD</div>
+            <div class="kpi-val sm">42</div>
+            <div class="kpi-sub"><span class="chip navy">Goal: 41</span> for month</div>
+            <div class="kpi-note green">102% to goal — need -1 more</div>
+          </div>
+        </div>
+
+        <div class="section-lbl">Progress to monthly goals</div>
+        <div style="padding: 4px 0;">
+          
+          <div class="prog-row">
+            <div class="prog-name">Gross Production<span>19 of 21 days</span></div>
+            <div class="prog-track"><div class="prog-fill amber" style="width:79%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">$348,765</div><div class="l">ACTUAL</div></div>
+              <div class="prog-num"><div class="v">$443,566</div><div class="l">MONTHLY GOAL</div></div>
+              <div class="prog-num"><div class="v">$344,655</div><div class="l">FORECAST · 101%</div></div>
+            </div>
+            <div class="prog-pct amber">79%</div>
+          </div>
+          <div class="prog-row">
+            <div class="prog-name">Collections<span>Target ≥98%</span></div>
+            <div class="prog-track"><div class="prog-fill amber" style="width:77%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">$310,379</div><div class="l">ACTUAL</div></div>
+              <div class="prog-num"><div class="v">$400,863</div><div class="l">GOAL</div></div>
+            </div>
+            <div class="prog-pct amber">77%</div>
+          </div>
+          <div style="font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin:8px 0 2px;">GP</div>
+          <div class="prog-row">
+            <div class="prog-name">Dr. Lo<span>Goal $254,515/mo</span></div>
+            <div class="prog-track"><div class="prog-fill amber" style="width:81%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">$205,027</div><div class="l">MTD</div></div>
+              <div class="prog-num"><div class="v">$254,515</div><div class="l">GOAL</div></div>
+              <div class="prog-num"><div class="v">$197,761</div><div class="l">FCST · 104%</div></div>
+            </div>
+            <div class="prog-pct amber">81%</div>
+          </div>
+          <div class="prog-row">
+            <div class="prog-name">Dr. Louie<span>Goal $18,533/mo</span></div>
+            <div class="prog-track"><div class="prog-fill green" style="width:100%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">$25,394</div><div class="l">MTD</div></div>
+              <div class="prog-num"><div class="v">$18,533</div><div class="l">GOAL</div></div>
+              <div class="prog-num"><div class="v">$14,400</div><div class="l">FCST · 176%</div></div>
+            </div>
+            <div class="prog-pct green">137%</div>
+          </div>
+          <div class="prog-row">
+            <div class="prog-name">Dr. S. Lin<span>Retired · Emergency</span></div>
+            <div class="prog-track"><div class="prog-fill" style="width:0%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">$848</div><div class="l">MTD</div></div>
+              <div class="prog-num"><div class="v">—</div><div class="l">RETIRED</div></div>
+            </div>
+            <div class="prog-pct" style="color:var(--ink4);">—</div>
+          </div>
+          <div class="prog-row">
+            <div class="prog-name">Dr. A. Nguyen<span>Associate · GP (Maternity LOA)</span></div>
+            <div class="prog-track"><div class="prog-fill" style="width:0%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">$0</div><div class="l">MTD</div></div>
+              <div class="prog-num"><div class="v">—</div><div class="l">LOA</div></div>
+            </div>
+            <div class="prog-pct" style="color:var(--ink4);">—</div>
+          </div>
+          <div style="font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin:8px 0 2px;">PERIO</div>
+          <div class="prog-row">
+            <div class="prog-name">Dr. Lee<span>Goal $18,468/mo</span></div>
+            <div class="prog-track"><div class="prog-fill green" style="width:89%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">$16,498</div><div class="l">MTD</div></div>
+              <div class="prog-num"><div class="v">$18,468</div><div class="l">GOAL</div></div>
+              <div class="prog-num"><div class="v">$14,350</div><div class="l">FCST · 115%</div></div>
+            </div>
+            <div class="prog-pct green">89%</div>
+          </div>
+          <div class="prog-row">
+            <div class="prog-name">Dr. D. Lin<span>Goal $7,847/mo</span></div>
+            <div class="prog-track"><div class="prog-fill red" style="width:1%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">$56</div><div class="l">MTD</div></div>
+              <div class="prog-num"><div class="v">$7,847</div><div class="l">GOAL</div></div>
+              <div class="prog-num"><div class="v">$6,097</div><div class="l">FCST · 1%</div></div>
+            </div>
+            <div class="prog-pct red">1%</div>
+          </div>
+          <div style="font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin:8px 0 2px;">PEDIATRIC</div>
+          <div class="prog-row">
+            <div class="prog-name">Dr. Rahgozar<span>Goal $14,019/mo</span></div>
+            <div class="prog-track"><div class="prog-fill red" style="width:61%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">$8,612</div><div class="l">MTD</div></div>
+              <div class="prog-num"><div class="v">$14,019</div><div class="l">GOAL</div></div>
+              <div class="prog-num"><div class="v">$10,893</div><div class="l">FCST · 79%</div></div>
+            </div>
+            <div class="prog-pct red">61%</div>
+          </div>
+          <div style="font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin:8px 0 2px;">HYGIENE</div>
+          <div class="prog-row">
+            <div class="prog-name">Alice Chien<span>Goal $44,655/mo</span></div>
+            <div class="prog-track"><div class="prog-fill red" style="width:65%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">$29,124</div><div class="l">MTD</div></div>
+              <div class="prog-num"><div class="v">$44,655</div><div class="l">GOAL</div></div>
+              <div class="prog-num"><div class="v">$34,697</div><div class="l">FCST · 84%</div></div>
+            </div>
+            <div class="prog-pct red">65%</div>
+          </div>
+          <div class="prog-row">
+            <div class="prog-name">Kim Nguyen<span>Goal $43,875/mo</span></div>
+            <div class="prog-track"><div class="prog-fill red" style="width:70%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">$30,757</div><div class="l">MTD</div></div>
+              <div class="prog-num"><div class="v">$43,875</div><div class="l">GOAL</div></div>
+              <div class="prog-num"><div class="v">$34,091</div><div class="l">FCST · 90%</div></div>
+            </div>
+            <div class="prog-pct red">70%</div>
+          </div>
+          <div class="prog-row">
+            <div class="prog-name">Thomas Du<span>Goal $41,654/mo</span></div>
+            <div class="prog-track"><div class="prog-fill red" style="width:71%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">$29,573</div><div class="l">MTD</div></div>
+              <div class="prog-num"><div class="v">$41,654</div><div class="l">GOAL</div></div>
+              <div class="prog-num"><div class="v">$32,366</div><div class="l">FCST · 91%</div></div>
+            </div>
+            <div class="prog-pct red">71%</div>
+          </div>
+          <div class="prog-row">
+            <div class="prog-name">Hygiene Dept<span>Combined goal $130,184/mo</span></div>
+            <div class="prog-track"><div class="prog-fill red" style="width:69%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">$89,454</div><div class="l">MTD</div></div>
+              <div class="prog-num"><div class="v">$130,184</div><div class="l">GOAL</div></div>
+            </div>
+            <div class="prog-pct red">69%</div>
+          </div>
+          <div class="prog-row">
+            <div class="prog-name">New Patients<span>Goal: 41/month</span></div>
+            <div class="prog-track"><div class="prog-fill green" style="width:100%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">42</div><div class="l">ACTUAL</div></div>
+              <div class="prog-num"><div class="v">41</div><div class="l">GOAL</div></div>
+            </div>
+            <div class="prog-pct green">102%</div>
+          </div>
+          <div class="prog-row">
+            <div class="prog-name">Hygiene Reappt.<span>Target ≥90% · 354/371 pts</span></div>
+            <div class="prog-track"><div class="prog-fill green" style="width:95%;"></div></div>
+            <div class="prog-nums">
+              <div class="prog-num"><div class="v">95.4%</div><div class="l">ACTUAL</div></div>
+              <div class="prog-num"><div class="v">90%</div><div class="l">TARGET</div></div>
+            </div>
+            <div class="prog-pct green">On Track</div>
+          </div>
+        </div>
+
+        <div class="insight">
+          <div class="insight-label">Pace Projection</div>
+          <div class="insight-text">At current daily run rate of <strong>$18,356/day</strong>, the practice will finish the month at approximately <strong>$385,477</strong>. 2 days remaining — need to average <strong>$47,400/day</strong> to hit $443,566 monthly goal.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MORNING HUDDLE ACTIONS -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-tag all">All Staff</span>
+        <span class="panel-title">Morning Huddle · Today's Priorities</span>
+        <span class="panel-meta">Print or share this section for morning huddle</span>
+      </div>
+      <div class="panel-body tight">
+        
+        <div class="action-item">
+          <div class="action-num">1</div>
+          <div class="action-body">
+            <div class="action-title">COLLECT OUTSTANDING PATIENT BALANCES IN CHAIR TODAY</div>
+            <div class="action-detail">Cross-reference today's schedule with AR aging. Flag patients with open balances at check-in. Priority: any balance over $200. Brief front desk on each name before doors open.</div>
+          </div>
+          <div class="action-meta">
+            <span class="action-owner front">Front Desk</span>
+            <span class="action-priority high">HIGH</span>
+          </div>
+        </div>
+        <div class="action-item">
+          <div class="action-num">2</div>
+          <div class="action-body">
+            <div class="action-title">ESCALATE 90+ DAY AR CLAIMS — $435,139 OVER THRESHOLD</div>
+            <div class="action-detail">52.3% of AR is 90+ days (threshold: 5%). Work the oldest claims today. Target: bring 90+ day back under 5% by month-end.</div>
+          </div>
+          <div class="action-meta">
+            <span class="action-owner billing">Billing</span>
+            <span class="action-priority high">HIGH</span>
+          </div>
+        </div>
+        <div class="action-item">
+          <div class="action-num">3</div>
+          <div class="action-body">
+            <div class="action-title">PRESENT PENDING TREATMENT PLANS — 38 PATIENTS WITH $253,915 PENDING TX</div>
+            <div class="action-detail">Clinical team: review patient list and flag outstanding treatment plans. Providers initiate chairside — "We have you approved for X, want to schedule today?" Every acceptance converts directly to production.</div>
+          </div>
+          <div class="action-meta">
+            <span class="action-owner clinical">Clinical</span>
+            <span class="action-priority med">MED</span>
+          </div>
+        </div>
+        <div class="action-item">
+          <div class="action-num">4</div>
+          <div class="action-body">
+            <div class="action-title">CLAIM FOLLOW-UP — 208 PENDING CLAIMS</div>
+            <div class="action-detail">208 claims pending adjudication. Prioritize claims outstanding > 14 days. Check for missing attachments or information.</div>
+          </div>
+          <div class="action-meta">
+            <span class="action-owner billing">Billing</span>
+            <span class="action-priority med">MED</span>
+          </div>
+        </div>
+        <div class="action-item">
+          <div class="action-num">5</div>
+          <div class="action-body">
+            <div class="action-title">FOLLOW UP WITH OPTUM UHC DENTAL COMMERCIAL — NO PAYMENTS IN 10+ DAYS</div>
+            <div class="action-detail">No payments received from Optum UHC Dental Commercial recently. Check for claim processing issues or payment holds.</div>
+          </div>
+          <div class="action-meta">
+            <span class="action-owner billing">Billing</span>
+            <span class="action-priority med">MED</span>
+          </div>
+        </div>
+        <div class="action-item">
+          <div class="action-num">6</div>
+          <div class="action-body">
+            <div class="action-title">FOLLOW UP WITH AMERITAS LIFE INSURANCE CORP. — NO PAYMENTS IN 10+ DAYS</div>
+            <div class="action-detail">No payments received from Ameritas Life Insurance Corp. recently. Check for claim processing issues or payment holds.</div>
+          </div>
+          <div class="action-meta">
+            <span class="action-owner billing">Billing</span>
+            <span class="action-priority med">MED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5-DAY TREND -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-tag mgmt">Management</span>
+        <span class="panel-title">5-Day Trend</span>
+        <span class="panel-meta">Source: Jarvis · Daily Production View</span>
+      </div>
+      <div class="panel-body tight">
+        <table class="t">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th class="r">Production</th>
+              <th class="r">vs Goal</th>
+              <th class="r">Collections</th>
+              <th class="r">Pts Seen</th>
+              <th class="r">Prod/Pt</th>
+              <th class="r">Cancels</th>
+              <th class="r">No-Shows</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td class="bold">Fri 6/19</td>
+              <td class="r mono">$20,203</td>
+              <td class="r"><span class="badge amber">96%</span></td>
+              <td class="r mono">$7,203</td>
+              <td class="r mono">49</td>
+              <td class="r mono">$412</td>
+              <td class="r mono">—</td>
+              <td class="r mono">—</td>
+              <td><span class="badge amber">Watch</span></td>
+            </tr>
+            <tr>
+              <td class="bold">Sat 6/20</td>
+              <td class="r mono">$9,465</td>
+              <td class="r"><span class="badge red">45%</span></td>
+              <td class="r mono">$1,696</td>
+              <td class="r mono">33</td>
+              <td class="r mono">$287</td>
+              <td class="r mono">—</td>
+              <td class="r mono">—</td>
+              <td><span class="badge red">Watch</span></td>
+            </tr>
+            <tr>
+              <td class="bold">Mon 6/22</td>
+              <td class="r mono">$11,777</td>
+              <td class="r"><span class="badge red">56%</span></td>
+              <td class="r mono">$13,476</td>
+              <td class="r mono">45</td>
+              <td class="r mono">$262</td>
+              <td class="r mono">—</td>
+              <td class="r mono">—</td>
+              <td><span class="badge red">Watch</span></td>
+            </tr>
+            <tr>
+              <td class="bold">Tue 6/23</td>
+              <td class="r mono">$17,629</td>
+              <td class="r"><span class="badge red">83%</span></td>
+              <td class="r mono">$5,337</td>
+              <td class="r mono">60</td>
+              <td class="r mono">$294</td>
+              <td class="r mono">—</td>
+              <td class="r mono">—</td>
+              <td><span class="badge red">Watch</span></td>
+            </tr>
+            <tr class="subtotal">
+              <td class="bold">Today (06/26)</td>
+              <td class="r mono" style="color:var(--teal); font-weight:700;">$15,452</td>
+              <td class="r"><span class="badge teal">Scheduled</span></td>
+              <td class="r mono">—</td>
+              <td class="r mono">54</td>
+              <td class="r mono">—</td>
+              <td class="r mono">0 risk</td>
+              <td class="r mono">—</td>
+              <td><span class="badge navy">Preview</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  <!-- END MAIN COLUMN -->
+
+  <!-- SIDE COLUMN -->
+  <div class="side-col">
+
+    <!-- ALERTS -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-tag all">All Staff</span>
+        <span class="panel-title">Alerts &amp; Flags</span>
+      </div>
+      <div class="panel-body">
+        
+        <div class="alert-card red">
+          <div class="alert-type red">⚠ ACTION REQUIRED</div>
+          <div class="alert-msg">90+ DAY AR ABOVE THRESHOLD</div>
+          <div class="alert-det">$435,139 (52.3%) is over 90 days. Target <5%. Escalate today. <strong>Owner: Billing.</strong></div>
+        </div>
+        <div class="alert-card red">
+          <div class="alert-type red">⚠ ACTION REQUIRED</div>
+          <div class="alert-msg">Dr. Lo — 63% OF DAILY GOAL</div>
+          <div class="alert-det">$4,428 production gap. Check schedule for open slots or cancellations. <strong>Owner: Front Desk / Clinical.</strong></div>
+        </div>
+        <div class="alert-card red">
+          <div class="alert-type red">⚠ ACTION REQUIRED</div>
+          <div class="alert-msg">Alice Chien — 66% OF DAILY GOAL</div>
+          <div class="alert-det">$899 production gap. Check schedule for open slots or cancellations. <strong>Owner: Front Desk / Clinical.</strong></div>
+        </div>
+        <div class="alert-card red">
+          <div class="alert-type red">⚠ ACTION REQUIRED</div>
+          <div class="alert-msg">COLLECTIONS RATIO BELOW 95% YESTERDAY</div>
+          <div class="alert-det">87.1% collections ratio. Target ≥95%. Review outstanding patient balances. <strong>Owner: Front Desk / Billing.</strong></div>
+        </div>
+        <div class="alert-card red">
+          <div class="alert-type red">⚠ ACTION REQUIRED</div>
+          <div class="alert-msg">PPO ADJUSTMENT RATE 1.5% VS 8.18% TARGET</div>
+          <div class="alert-det">Deviation of 6.7 points from forecast. Review fee schedule and contractual adjustments. <strong>Owner: Billing.</strong></div>
+        </div>
+        <div class="alert-card red">
+          <div class="alert-type red">⚠ ACTION REQUIRED</div>
+          <div class="alert-msg">4 PAYERS INACTIVE 10+ DAYS</div>
+          <div class="alert-det">Optum UHC Dental Commercial, Ameritas Life Insurance Corp., Delta Dental (+1 more) — no payments received in over 10 business days. Follow up on outstanding claims. <strong>Owner: Billing.</strong></div>
+        </div>
+        <div class="alert-card green">
+          <div class="alert-type green">✓ POSITIVE</div>
+          <div class="alert-msg">4 LARGE INSURANCE BATCHES RECEIVED</div>
+          <div class="alert-det">Top: Delta Dental of California ($76,573). $142,945 total from 4 payers > $10K. Verify posting is complete.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RCM SNAPSHOT -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-tag billing">Billing</span>
+        <span class="panel-title">RCM Snapshot</span>
+        <span class="panel-meta">Jarvis AR · Lassie · Claims</span>
+      </div>
+      <div class="panel-body">
+        <div class="mini-stats" style="margin-bottom:12px;">
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Total AR</div>
+            <div class="mini-stat-val">$831,237</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">90+ Days</div>
+            <div class="mini-stat-val" style="color:var(--red);">$435,139</div>
+            <div class="mini-stat-sub">52.3% of AR</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Claims Pending</div>
+            <div class="mini-stat-val">208</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">PPO Adj Rate</div>
+            <div class="mini-stat-val" style="color:var(--amber);">1.5%</div>
+            <div class="mini-stat-sub">Target: 8.18%</div>
+          </div>
+        </div>
+
+        
+        <div class="section-lbl">AR aging buckets <span style="font-size:9px;color:var(--muted);">(Jarvis)</span> <span style="font-size:9px;color:var(--muted);">(Patient: $729,331 · Insurance: $101,906)</span></div>
+        <div class="ar-bar">
+          <div style="width:26%; background:var(--green);"></div>
+          <div style="width:12%; background:#d97706;"></div>
+          <div style="width:9%;  background:#e5533a;"></div>
+          <div style="width:52%;  background:var(--red);"></div>
+        </div>
+        <table class="t" style="font-size:11px;">
+          <thead><tr><th>Bucket</th><th class="r">Balance</th><th class="r">%</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>0–30 days</td><td class="r mono">$217,940</td><td class="r mono">26%</td><td><span class="badge green">Healthy</span></td></tr>
+            <tr><td>31–60 days</td><td class="r mono">$100,719</td><td class="r mono">12.1%</td><td><span class="badge amber">Watch</span></td></tr>
+            <tr><td>61–90 days</td><td class="r mono">$77,440</td><td class="r mono">9.3%</td><td><span class="badge amber">Watch</span></td></tr>
+            <tr><td class="bold">90+ days</td><td class="r mono bold" style="color:var(--red);">$435,139</td><td class="r mono" style="color:var(--red);">52.3%</td><td><span class="badge red">Action</span></td></tr>
+            
+            <tr style="font-size:10px;color:var(--muted);"><td style="padding-left:16px;">91–120 days</td><td class="r mono">$40,865</td><td class="r mono">4.9%</td><td></td></tr>
+            <tr style="font-size:10px;color:var(--muted);"><td style="padding-left:16px;">121–180 days</td><td class="r mono">$75,145</td><td class="r mono">9.0%</td><td></td></tr>
+            <tr style="font-size:10px;color:var(--muted);"><td style="padding-left:16px;">181–240 days</td><td class="r mono">$56,656</td><td class="r mono">6.8%</td><td></td></tr>
+            <tr style="font-size:10px;color:var(--muted);"><td style="padding-left:16px;">241–365 days</td><td class="r mono">$58,173</td><td class="r mono">7.0%</td><td></td></tr>
+            <tr style="font-size:10px;color:var(--muted);"><td style="padding-left:16px;">365+ days</td><td class="r mono">$204,299</td><td class="r mono">24.6%</td><td></td></tr>
+          </tbody>
+        </table>
+        
+        <div class="divider"></div>
+        <div class="section-lbl">Insurance Payments (Lassie)</div>
+        <div class="mini-stats" style="margin-bottom:8px;">
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Today</div>
+            <div class="mini-stat-val">$0</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">MTD Total</div>
+            <div class="mini-stat-val">$169,431</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl"><span class="badge green">Received</span></div>
+            <div class="mini-stat-val">$162,075</div>
+            <div class="mini-stat-sub">107 payments · 96%</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl"><span class="badge red">Awaiting</span></div>
+            <div class="mini-stat-val" style="color:var(--red);">$7,356</div>
+            <div class="mini-stat-sub">21 payments</div>
+          </div>
+        </div>
+        <div class="mini-stats" style="margin-bottom:8px;">
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">EFT/ACH</div>
+            <div class="mini-stat-val">$162,075</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Paper Check</div>
+            <div class="mini-stat-val">$7,356</div>
+          </div>
+        </div>
+        <table class="t" style="font-size:11px;">
+          <thead><tr><th>Top Payers (MTD)</th><th class="r">Amount</th><th>Bank Status</th></tr></thead>
+          <tbody><tr><td>Delta Dental of California</td><td class="r mono">$76,573</td><td><span class="badge green">Received</span></td></tr><tr><td>Metlife</td><td class="r mono">$43,191</td><td><span class="badge green">Received</span></td></tr><tr><td>The Guardian Life Insurance Company of America</td><td class="r mono">$13,039</td><td><span class="badge amber">Partial — $90 awaiting</span></td></tr><tr><td>Cigna</td><td class="r mono">$10,142</td><td><span class="badge green">Received</span></td></tr><tr><td>Aetna</td><td class="r mono">$7,146</td><td><span class="badge green">Received</span></td></tr></tbody>
+        </table>
+        
+        <div style="margin-top:8px;font-size:10px;color:var(--muted);text-transform:uppercase;">Recent Payments (Last 2 Days)</div>
+        <table class="t" style="font-size:10px;margin-top:4px;">
+          <thead><tr><th>Date</th><th>Payer</th><th class="r">Amount</th><th>Method</th><th>Bank Status</th></tr></thead>
+          <tbody><tr><td style="font-size:10px;">2026-06-24</td><td style="font-size:10px;">Delta Dental of New York</td><td class="r mono" style="font-size:10px;">$281</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-24</td><td style="font-size:10px;">Dentegra Insurance Compan</td><td class="r mono" style="font-size:10px;">$106</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-24</td><td style="font-size:10px;">Delta Dental Insurance Co</td><td class="r mono" style="font-size:10px;">$688</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-24</td><td style="font-size:10px;">Principal Life Insurance </td><td class="r mono" style="font-size:10px;">$1,133</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-24</td><td style="font-size:10px;">United Concordia Companie</td><td class="r mono" style="font-size:10px;">$236</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-24</td><td style="font-size:10px;">Metlife Dental Claims</td><td class="r mono" style="font-size:10px;">$262</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-24</td><td style="font-size:10px;">Metlife</td><td class="r mono" style="font-size:10px;">$246</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-24</td><td style="font-size:10px;">Metlife</td><td class="r mono" style="font-size:10px;">$753</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-24</td><td style="font-size:10px;">Metlife</td><td class="r mono" style="font-size:10px;">$214</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-24</td><td style="font-size:10px;">Metlife</td><td class="r mono" style="font-size:10px;">$964</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-25</td><td style="font-size:10px;">Delta Dental of Californi</td><td class="r mono" style="font-size:10px;">$499</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-25</td><td style="font-size:10px;">Delta Dental of Californi</td><td class="r mono" style="font-size:10px;">$23,845</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-25</td><td style="font-size:10px;">The Guardian Life Insuran</td><td class="r mono" style="font-size:10px;">$512</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-25</td><td style="font-size:10px;">Metlife</td><td class="r mono" style="font-size:10px;">$498</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr><tr><td style="font-size:10px;">2026-06-25</td><td style="font-size:10px;">Metlife</td><td class="r mono" style="font-size:10px;">$122</td><td style="font-size:10px;">ACH</td><td style="font-size:10px;"><span class="badge green">Received</span></td></tr></tbody>
+        </table>
+        
+        <div class="divider"></div>
+        <div class="section-lbl">Claims & Adjustments</div>
+        <div class="mini-stats" style="margin-bottom:8px;">
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Claims MTD</div>
+            <div class="mini-stat-val">511</div>
+            <div class="mini-stat-sub">208 pending</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Insurance Adj (Contractual)</div>
+            <div class="mini-stat-val" style="color:var(--red)">$5,188</div>
+            <div class="mini-stat-sub">1.5% of gross vs 8.18% target</div>
+            <div class="mini-stat-sub" style="color:var(--amber)">49 rows reclassified from Courtesy/Credit via note cross-check</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Fee Upgrades (Lassie/Ins)</div>
+            <div class="mini-stat-val" style="color:var(--green)">+$4,201</div>
+            <div class="mini-stat-sub">Net contractual: $987</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Practice Discretionary</div>
+            <div class="mini-stat-val">$31,924</div>
+            <div class="mini-stat-sub">Courtesy $12,506 · Credit $18,267 · Cash $859</div>
+          </div>
+        </div>
+        <div class="mini-stats" style="margin-bottom:4px;">
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Patient Refunds</div>
+            <div class="mini-stat-val">$882</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Membership</div>
+            <div class="mini-stat-val">$292</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Other/Unclassified</div>
+            <div class="mini-stat-val">$4,651</div>
+          </div>
+        </div>
+        
+        <div class="divider"></div>
+        <div class="section-lbl">Invisalign (D8080 · D8090)</div>
+        <div class="mini-stats" style="margin-bottom:8px;">
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">MTD Case Starts</div>
+            <div class="mini-stat-val">10</div>
+            <div class="mini-stat-sub" style="color:var(--green);">On Pace · baseline 6.4/mo</div>
+            <div class="mini-stat-sub" style="color:var(--slate);">Below Platinum pace · stretch 11.7/mo</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Path to Platinum · H1 2026</div>
+            <div class="mini-stat-val">42 / 70</div>
+            <div class="mini-stat-sub" style="color:var(--red);">28 to go · not reachable this half — resets next half</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">MTD Revenue</div>
+            <div class="mini-stat-val">$69,600</div>
+            <div class="mini-stat-sub">Adult 10 · Teen 0</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">YTD Cases</div>
+            <div class="mini-stat-val">42</div>
+            <div class="mini-stat-sub">$291,260 total</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Avg Case Fee</div>
+            <div class="mini-stat-val">$6,935</div>
+          </div>
+        </div>
+        <div style="margin-top:6px;padding:6px 10px;border-radius:6px;background:rgba(0,0,0,0.04);color:var(--slate);font-size:11px;">Last case start: 2026-06-19 · Yiyin ($7,000)</div>
+        <div style="margin-top:4px;font-size:10px;color:var(--slate);">MTD referral mix → Unattributed: 10</div>
+      </div>
+    </div>
+
+    <!-- SCHEDULING RISK -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-tag front">Front Desk</span>
+        <span class="panel-title">Scheduling Risk</span>
+        <span class="panel-meta">Jarvis · Calendar</span>
+      </div>
+      <div class="panel-body">
+        <div class="mini-stats" style="margin-bottom:10px;">
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Cancels Yesterday</div>
+            <div class="mini-stat-val" style="color:var(--amber);">1</div>
+            <div class="mini-stat-sub">$360 lost</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">No-Shows Yesterday</div>
+            <div class="mini-stat-val">0</div>
+            <div class="mini-stat-sub">N/A</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Same-Day Fills</div>
+            <div class="mini-stat-val">0</div>
+            <div class="mini-stat-sub">N/A</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-lbl">Unconfirmed Today</div>
+            <div class="mini-stat-val" style="color:var(--amber);">0</div>
+            <div class="mini-stat-sub">$0 at risk</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YTD TRACKER -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-tag mgmt">Management</span>
+        <span class="panel-title">YTD vs 2026 Goal</span>
+        <span class="panel-meta">Jarvis · V2 Goal Engine</span>
+      </div>
+      <div class="panel-body">
+        
+        <div style="margin-bottom:10px;">
+          <div class="prog-row" style="border:none; padding: 6px 0;">
+            <div class="prog-name" style="width:90px;">YTD Gross<span>vs $5.02M goal</span></div>
+            <div class="prog-track"><div class="prog-fill navy" style="width:45%"></div></div>
+            <div class="prog-pct navy">45.2%</div>
+          </div>
+          <div class="prog-row" style="border:none; padding: 6px 0;">
+            <div class="prog-name" style="width:90px;">Dr. Lo Pace<span>vs $2,720,620 goal</span></div>
+            <div class="prog-track"><div class="prog-fill amber" style="width:46%"></div></div>
+            <div class="prog-pct amber">-5%</div>
+          </div>
+          <div class="prog-row" style="border:none; padding: 6px 0;">
+            <div class="prog-name" style="width:90px;">Hygiene Pace<span>vs $1,377,631 goal</span></div>
+            <div class="prog-track"><div class="prog-fill amber" style="width:42%"></div></div>
+            <div class="prog-pct amber">-14%</div>
+          </div>
+        </div>
+
+        <div style="background:var(--bg); border:1px solid var(--border); border-radius:4px; padding:9px 11px;">
+          <div style="font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:4px;">2026 Annual (V2 Engine)</div>
+          <div style="display:flex; justify-content:space-between; align-items:baseline;">
+            <span style="font-size:11px;color:var(--ink3);">FY gross goal</span>
+            <span style="font-size:13px;font-weight:700;color:var(--navy);">$5,018,397</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:3px;">
+            <span style="font-size:11px;color:var(--ink3);">FY gross forecast</span>
+            <span style="font-size:12px;font-weight:600;color:var(--ink3);">$4,298,266</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:3px;">
+            <span style="font-size:11px;color:var(--ink3);">YTD actual</span>
+            <span style="font-size:12px;font-weight:600;color:var(--green);">$2,269,702</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END SIDE COLUMN -->
+
+</div><!-- end body-wrap -->
+
+<!-- FOOTER -->
+<div class="report-footer">
+  <div class="footer-left">CFDC · Daily Pulse · Confidential · Internal Use Only</div>
+  <div class="footer-sources">
+    <div class="footer-src">Jarvis: <span>Production · Collections · AR Aging · Claims · Scheduling</span></div>
+    <div class="footer-src">Lassie: <span>Insurance Payments</span></div>
+    <div class="footer-src" id="footer-timestamp">Generated: <span>Friday, June 26, 2026 · 2:02 AM</span></div>
+  </div>
+</div>
+
+<script>
+  const now = new Date();
+  const h = now.getHours();
+  const greeting = h < 12 ? "Good morning — here\'s your daily pulse." : h < 17 ? "Afternoon update — daily pulse." : "End-of-day pulse report.";
+  document.getElementById('greeting').textContent = greeting;
+</script>
+
+</body>
+</html>
